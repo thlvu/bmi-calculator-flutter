@@ -10,7 +10,7 @@ class ResultPage extends StatelessWidget {
     String interpret = args['interpret'];
 
     return commonWrapper(
-      Column(
+      widget: Column(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
@@ -56,6 +56,11 @@ class ResultPage extends StatelessWidget {
           )
         ],
       ),
+      appBar: resultPageAppBar
     );
   }
 }
+
+AppBar resultPageAppBar = AppBar(
+  title: Text('Result'),
+);

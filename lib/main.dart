@@ -3,18 +3,30 @@ import 'input_page/input_page.dart';
 import 'result_page.dart';
 import 'common.dart';
 
-
 void main() => runApp(BMICalculator());
 
 class BMICalculator extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      initialRoute: '/input_page',
-      routes: {
-        '/input_page': (context) => InputPage(),
-        '/result_page': (context) => ResultPage(),
-      });
+        theme: ThemeData.dark().copyWith(
+          primaryColor: themePrimaryColor,
+          scaffoldBackgroundColor: themeScaffoldBgColor,
+          sliderTheme: SliderTheme.of(context).copyWith(
+              activeTrackColor: sliderThemeActiveTrackColor,
+              inactiveTrackColor: sliderThemeInactiveTrackColor,
+              thumbColor: sliderThumbColor,
+              overlayColor: sliderOverlayColor,
+              thumbShape:
+                  RoundSliderThumbShape(enabledThumbRadius: sliderThumbRadius),
+              overlayShape:
+                  RoundSliderOverlayShape(overlayRadius: sliderOverlayRadius)),
+        ),
+        initialRoute: '/input_page',
+        routes: {
+          '/input_page': (context) => InputPage(),
+          '/result_page': (context) => ResultPage(),
+        });
   }
 }
 

@@ -19,40 +19,43 @@ class _InputPageState extends State<InputPage> {
   @override
   Widget build(BuildContext context) {
     return commonWrapper(
-        Column(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Expanded(flex: 2, child: genderRow),
-            columnSizedBox,
-            Expanded(flex: 2, child: heightSlider),
-            columnSizedBox,
-            Expanded(flex: 2, child: weightAgeRow),
-            columnSizedBox,
-            Expanded(
-              child: GestureDetector(
-                onTap: () {
-                  bmiCalculator = BMICalculator(
-                      height: heightSlider.height, weight: weightAgeRow.weight);
-                  bmiCalculator.calculate();
-                  Navigator.pushNamed(context, '/result_page', arguments: {
-                    'bmi': bmiCalculator.bmi,
-                    'result': bmiCalculator.getResult(),
-                    'interpret': bmiCalculator.getInterpret(),
-                  });
-                },
-                child: Container(
-                  color: submitButtonColor,
-                  child: Center(
-                    child: Text(
-                      'CALCULATE',
-                      style: titleTextStyle,
-                    ),
-                  ),
+      widget: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          genderRow,
+          heightSlider,
+          weightAgeRow,
+          GestureDetector(
+            onTap: () {
+              bmiCalculator = BMICalculator(
+                  height: heightSlider.height, weight: weightAgeRow.weight);
+              bmiCalculator.calculate();
+              Navigator.pushNamed(context, '/result_page', arguments: {
+                'bmi': bmiCalculator.bmi,
+                'result': bmiCalculator.getResult(),
+                'interpret': bmiCalculator.getInterpret(),
+              });
+            },
+            child: Container(
+              margin: EdgeInsets.only(top: oneSidePadding),
+              color: submitButtonColor,
+              height: submitButtonHeight,
+              width: double.infinity,
+              child: Center(
+                child: Text(
+                  'CALCULATE',
+                  style: titleTextStyle,
                 ),
               ),
-            )
-          ],
-        ),
-      );
+            ),
+          )
+        ],
+      ),
+      appBar: inputPageAppBar
+    );
   }
 }
+
+AppBar inputPageAppBar = AppBar(
+  title: Text('BMI CALCULATOR'),
+);

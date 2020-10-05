@@ -116,11 +116,16 @@ class __WeightOrAgeButtonState extends State<_WeightOrAgeButton> {
               )
             ],
           ),
+          SizedBox(height: 10.0,),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Expanded(
                 child: RawMaterialButton(
+                  constraints: BoxConstraints.tightFor(
+                    width: flatButtonSize,
+                    height: flatButtonSize,
+                  ),
                   onPressed: () {
                     setState(() {
                       this.value++;
@@ -131,7 +136,6 @@ class __WeightOrAgeButtonState extends State<_WeightOrAgeButton> {
                   fillColor: iconBackgroundColor,
                   child: Icon(
                     plus1,
-                    size: iconSize,
                     color: iconColor,
                   ),
                 ),
@@ -139,6 +143,10 @@ class __WeightOrAgeButtonState extends State<_WeightOrAgeButton> {
               rowSizedBox,
               Expanded(
                 child: RawMaterialButton(
+                  constraints: BoxConstraints.tightFor(
+                    width: flatButtonSize,
+                    height: flatButtonSize,
+                  ),
                   onPressed: () {
                     setState(() {
                       this.value--;
@@ -149,7 +157,6 @@ class __WeightOrAgeButtonState extends State<_WeightOrAgeButton> {
                   fillColor: iconBackgroundColor,
                   child: Icon(
                     minus1,
-                    size: iconSize,
                     color: iconColor,
                   ),
                 ),

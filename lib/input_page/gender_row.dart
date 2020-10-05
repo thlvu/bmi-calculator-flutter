@@ -76,6 +76,7 @@ class _GenderButton extends StatelessWidget {
               size: iconSize,
               color: iconColor,
             ),
+            columnSizedBox,
             Text(
               title,
               style: titleTextStyle,
